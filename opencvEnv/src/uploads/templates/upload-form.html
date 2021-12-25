@@ -17,6 +17,10 @@
         h3 {
             margin-top: 20px;
         }
+
+        .download {
+            text-align: center;
+        }
     </style>
   </head>
   <body>
@@ -34,17 +38,25 @@
                         <div class="field">
                             <div class="control">
                                 <button class="button is-success">Upload</button>
+                                <div class="download">
+                                    <h3>❗❗❗ Make sure to download your image under 10 secs. Otherwise, it'll get vanished 😁❗❗❗</h3>
+                                </div>
                             </div>
                         </div>
                     </form>
                     
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image">
-                                <img src="{{ upload.image.url }}">
-                            </figure>
-                        </div>
-                    </div> 
+                    {% if upload %}
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img src="{{ upload.image.url }}">
+                                </figure>
+                            </div>
+                            <div class="download">
+                                <button class="button"><a href="{{ upload.image.url }}" download="{{ upload.image.url }}">Download Image</a></button>
+                            </div>
+                        </div> 
+                    {% endif %}
                 </div>
             </div>
         </div>
