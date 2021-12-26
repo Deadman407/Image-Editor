@@ -14,13 +14,20 @@ ACTION_CHOICES = (
     ('BINARY', 'binary'),
     ('INVERT', 'invert'),
     ('CARTOONISED', 'cartoonised'),
-    ('WATER-ART', 'water-art')
+    ('WATER-ART', 'water-art'),
+    ('SHARPEN', 'sharpen'),
+    ('SEPIA', 'sepia'),
+    ('EMBOSS', 'emboss'),
+    ('WARM', 'warm'),
+    ('COOL', 'cool'),
+    ('SKETCH', 'sketch'),
+    ('HDR', 'hdr')
 )
 
 
 class Upload(models.Model):
     image = models.ImageField(upload_to='images')
-    action = models.CharField(max_length=50, choices=ACTION_CHOICES)
+    action = models.CharField(max_length=50, choices=ACTION_CHOICES, default='NO_FILTER')
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

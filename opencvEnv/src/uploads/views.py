@@ -3,8 +3,6 @@ from django.http import HttpResponse
 from .forms import UploadForm
 from .models import Upload
 
-import time
-
 def uploadImage(request):
     form = UploadForm()
 
@@ -20,7 +18,6 @@ def uploadImage(request):
         upload = Upload.objects.latest('created')
         context = {'form': form, 'upload': upload}
 
-        time.sleep(10)
         upload.delete()
 
     return render(request, 'upload-form.html', context)
